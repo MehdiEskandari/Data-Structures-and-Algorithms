@@ -91,3 +91,5 @@ class LinkedList {
       throw new Error("enter valid index.");
   }
 }
+
+module.exports = LinkedList;
