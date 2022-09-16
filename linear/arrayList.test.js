@@ -6,6 +6,7 @@ describe("#add", () => {
 
         al.add(10)
         al.add(100)
+
         expect(al.length).toBe(2);
     });
 });
@@ -17,6 +18,7 @@ describe("#remove", () => {
         al.add(10)
         al.add(100)
         al.remove(100)
+        
         expect(al.length).toBe(1);
     });
 });
