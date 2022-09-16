@@ -12,6 +12,7 @@ class ArrayList {
   }
 
   insertAt(index, element) {
+    this.length++;
     this.#checkIndexValidation(index);
 
     for (let i = this.length - 1; i >= index; i--)
@@ -19,14 +20,12 @@ class ArrayList {
 
     this.#list[index] = element;
 
-    this.length++;
   }
 
   remove(element) {
     if (this.contains(element)) {
       let index = this.indexOf(element);
-
-      this.removeAt(index);
+      return this.removeAt(index);
     }
 
     throw new Error(`The ${element} not exist.`);
@@ -94,11 +93,14 @@ class ArrayList {
   }
 }
 
+module.exports = ArrayList;
+
 let al = new ArrayList();
 
 al.add(10);
 al.add(100);
 al.add(1000);
+al.remove(10);
 
 al.insertAt(0, 10000);
 
