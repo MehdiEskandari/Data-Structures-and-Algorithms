@@ -1,7 +1,7 @@
 const LinkedList = require('./linkedList');
 
-describe("insertHead", ()=>{
-    test("Insert a new node to the head", ()=> {
+describe("insertHead", () => {
+    test("Insert a new node to the head", () => {
         const linkedList = new LinkedList()
 
         linkedList.insertHead(10)
@@ -12,8 +12,8 @@ describe("insertHead", ()=>{
     })
 })
 
-describe("removeHead", ()=>{
-    test("Remove a node from the linkedList", ()=> {
+describe("removeHead", () => {
+    test("Remove a node from the linkedList", () => {
         const linkedList = new LinkedList()
 
         linkedList.insertHead(10)
@@ -25,8 +25,8 @@ describe("removeHead", ()=>{
     })
 })
 
-describe("indexAt", ()=>{
-    test("Find a node from the linkedList", ()=> {
+describe("indexAt", () => {
+    test("Find a node from the linkedList", () => {
         const linkedList = new LinkedList()
 
         linkedList.insertHead(10)
@@ -37,21 +37,21 @@ describe("indexAt", ()=>{
     })
 })
 
-describe("insertAt", ()=>{
-    test("Insert a new node to the head", ()=> {
+describe("insertAt", () => {
+    test("Insert a new node to the head", () => {
         const linkedList = new LinkedList()
 
         linkedList.insertHead(1)
         linkedList.insertHead(10)
         linkedList.insertHead(100)
         linkedList.insertAt(1, 1000)
-        
+
         expect(linkedList.indexAt(1).value).toBe(1000)
     })
 })
 
-describe("removeAt", ()=>{
-    test("Remove a node from the linkedList", ()=> {
+describe("removeAt", () => {
+    test("Remove a node from the linkedList", () => {
         const linkedList = new LinkedList()
 
         linkedList.insertHead(10)
@@ -59,7 +59,7 @@ describe("removeAt", ()=>{
         linkedList.insertHead(1000)
         linkedList.insertHead(10000)
         linkedList.removeAt(1)
-        
+
         expect(linkedList.indexAt(2).value).toBe(10)
     })
 })
