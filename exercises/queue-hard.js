@@ -12,10 +12,12 @@ class Queue {
     }
 
     dequeue() {
-        const item = this.#queue[this.front]
-        delete this.#queue[this.front]
-        this.front++
-        return item
+        if(!this.#isEmpty()){
+            const item = this.#queue[this.front]
+            delete this.#queue[this.front]
+            this.front++
+            return item
+        }
     }
 
     #isEmpty() {
@@ -31,7 +33,7 @@ class Queue {
     }
 
     print() {
-        return this.#queue.join(' --> ')
+        return  !this.#isEmpty() ? this.#queue.join(' --> ') : 'Queue is empty.'
     }
 }
 
