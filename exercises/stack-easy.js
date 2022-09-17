@@ -12,11 +12,11 @@ class Stack{
 
     contains = (element) => this.#stack.includes(element)
 
-    isEmpty = () => this.#stack.length === 0
+    #isEmpty = () => this.#stack.length === 0
 
     size = () => this.#stack.length
 
-    print = () => this.#stack.join(" --> ");
+    print = () => !this.#isEmpty ? this.#stack.join(" --> ") : "Stack is empty.";
 }
 
 module.exports = Stack;
