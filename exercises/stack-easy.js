@@ -8,7 +8,7 @@ class Stack{
 
     pop = () => this.#stack.pop()
     
-    peak = () => this.#stack[this.#stack.length - 1]
+    peek = () => this.#stack[this.#stack.length - 1]
 
     contains = (element) => this.#stack.includes(element)
 
