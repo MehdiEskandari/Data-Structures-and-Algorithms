@@ -1,36 +1,36 @@
-class Queue{
+class Queue {
     #queue;
-    constructor(){
+    constructor() {
         this.#queue = {}
         this.back = 0
         this.front = 0
     }
 
-    enqueue(element){
+    enqueue(element) {
         this.#queue[this.back] = element
         this.back++
     }
 
-    dequeue(){
+    dequeue() {
         const item = this.#queue[this.front]
         delete this.#queue[this.front]
         this.front++
         return item
     }
 
-    #isEmpty(){
-        return this.back-this.front === 0
+    #isEmpty() {
+        return this.back - this.front === 0
     }
 
-    peek(){
+    peek() {
         return this.#queue[this.front]
     }
 
-    size(){
-        return this.back-this.front
+    size() {
+        return this.back - this.front
     }
 
-    print(){
+    print() {
         return this.#queue.join(' --> ')
     }
 }
