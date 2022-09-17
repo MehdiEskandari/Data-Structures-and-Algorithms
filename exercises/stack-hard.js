@@ -1,42 +1,42 @@
-class Stack{
+class Stack {
     #list;
     #size;
-    constructor(size){
+    constructor(size) {
         this.length = 0;
         this.#size = size;
-        this.#list = size ? new Array(size): new Array();
-    } 
+        this.#list = size ? new Array(size) : new Array();
+    }
 
-    push(element){
-        if(this.#checkArraySize() || !this.#size){
+    push(element) {
+        if (this.#checkArraySize() || !this.#size) {
             this.#list[this.length] = element
             this.length++;
-        }else{
-            throw new Error(`Stack is full => Stack size is ${this.#size}: Your data size is: ${this.length+1}`)
-        } 
+        } else {
+            throw new Error(`Stack is full => Stack size is ${this.#size}: Your data size is: ${this.length + 1}`)
+        }
     }
 
     pop() {
-        if(this.#isEmpty()){
+        if (this.#isEmpty()) {
             return "Stack is empty.";
-        }else{
+        } else {
             this.#list[this.length] = undefined;
             this.length--;
         }
     }
-    
-    peak(){
-        if(this.#isEmpty())
+
+    peak() {
+        if (this.#isEmpty())
             return "Stack is empty."
         else
             return this.#list[this.length - 1]
     }
 
-    contains(element){
+    contains(element) {
         let isFind = false
 
         for (let index = 0; index < this.length; index++)
-            if(this.#list[index] === element)
+            if (this.#list[index] === element)
                 isFind = true
 
         return isFind
@@ -52,11 +52,11 @@ class Stack{
 
     print() {
         let container = ""
-        if(this.length === 0){
+        if (this.length === 0) {
             return "Stack is empty."
-        }else{
+        } else {
             for (let index = 0; index < this.length; index++) {
-                container += `${this.#list[index]} ${index === this.length-1 ? '' : ' --> '}`
+                container += `${this.#list[index]} ${index === this.length - 1 ? '' : ' --> '}`
             }
         }
         return `${container} ${this.#size ? '=> Size: ' + this.length + '/' + this.#size : '=> Size: ' + this.length}`;
