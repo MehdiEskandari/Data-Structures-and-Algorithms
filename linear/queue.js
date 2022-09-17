@@ -43,14 +43,4 @@ class Queue {
   }
 }
 
-const queue = new Queue();
-
-queue.enqueue(10);
-queue.enqueue(100);
-queue.enqueue(1000);
-
-queue.dequeue();
-queue.dequeue();
-queue.dequeue();
-
-console.log(queue.print());
+module.exports = Queue;
