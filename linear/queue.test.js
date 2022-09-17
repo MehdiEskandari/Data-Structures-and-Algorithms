@@ -1,7 +1,7 @@
 const Queue = require('./queue');
 
 describe("#enqueue", () => {
-    test("Push an item to the queue.", ()=> {
+    test("Add an item into the queue.", ()=> {
         const queue = new Queue();
 
         queue.enqueue(10)
@@ -13,7 +13,7 @@ describe("#enqueue", () => {
 })
 
 describe("#dequeue", () => {
-    test("Push an item to the queue.", ()=> {
+    test("Remove an item from the queue.", ()=> {
         const queue = new Queue();
 
         queue.enqueue(10)
@@ -27,13 +27,14 @@ describe("#dequeue", () => {
 })
 
 describe("#contains", () => {
-    test("Push an item to the queue.", ()=> {
+    test("Check if there is an item in the queue", ()=> {
         const queue = new Queue();
 
         queue.enqueue(10)
         queue.enqueue(100)
         queue.enqueue(1000)
 
-        expect(queue.length()).toBe(1)
+        expect(queue.contains(100)).toBe(true)
+        expect(queue.contains(1)).toBe(false)
     })
 })
