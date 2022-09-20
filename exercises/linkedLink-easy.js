@@ -1,7 +1,7 @@
 class Node {
   constructor(value, next) {
-    this.next = next;
     this.value = value;
+    this.next = next;
   }
 }
 
@@ -16,19 +16,35 @@ class LinkedList {
 
   getSize = () => this.size;
 
-  prepend = (value) => {
-    const node = new Node(value, this.head)
+  // O(1)
+  prepend = (element) => {
+    const node = new Node(element, this.head)
     
     this.isEmpty() ? this.body = node : node.next = this.head;
     this.head = node
-    
+
     this.size++;
   }
-  append = (value) => {
-    const node = new Node(value, null)
+
+  // O(1)
+  append = (element) => {
+    const node = new Node(element, null)
     
     this.isEmpty() ? this.head = node : this.body.next = node;
     this.body = node
+
+    this.size++;
+  }
+
+  // O(n)
+  insertAt = (index, element) => {
+    let current = this.head
+    
+    index === 0 && this.prepend(element)
+    if (index > 0) {
+      for(let i = 0; i < index-1; i++) current = current.next;
+      current.next = new Node(element, current.next)
+    }
 
     this.size++;
   }
@@ -40,7 +56,7 @@ class LinkedList {
       let curr = this.head
       let listValues = ''
       while (curr) {
-        listValues +=  `${curr.value} --> `
+        listValues +=  `${curr.value} --> ${!curr.next ? 'null' : ''}`
         curr = curr.next
       }
       console.log(listValues);
@@ -58,6 +74,7 @@ linkedlist.prepend(100000)
 linkedlist.append(100)
 linkedlist.append(10)
 linkedlist.append(1)
+linkedlist.insertAt(3, 90)
 console.log("isEmpty: ", linkedlist.isEmpty());
 console.log("size: ", linkedlist.getSize());
 
